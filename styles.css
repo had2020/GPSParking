@@ -1,0 +1,18 @@
+:root {
+    text-align: center;
+    background-color: rgb(40, 40, 40);
+    color: #FFFFFF;
+}
+
+:MainText {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #FFFFFF;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
