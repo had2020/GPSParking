@@ -1,11 +1,6 @@
 console.log("begin log");
 
-/*
-localStorage.setItem('latitude', latitude.toString());
-const username = localStorage.getItem('username');
-console.log(username);
-*/
-
+let unvail = false;
 
 const successCallback = (position) => {
     console.log(position);
@@ -17,7 +12,6 @@ const successCallback = (position) => {
     console.log(`Latitude: ${latitude}, Longitude: ${longitude}, Accuracy: ${accuracy} meters`);
     localStorage.setItem('latitude', latitude.toString());
     localStorage.setItem('longitude', longitude.toString());
-    localStorage.setItem('accuracy', accuracy.toString());
     alert("GPS coordinates, saved in browsing data. 👍");
     };
   
@@ -43,12 +37,20 @@ function SaveCords() {
 function LoadCords() {
   const latitude1 = localStorage.getItem('latitude');
   const longitude1 = localStorage.getItem('longitude');
-  const accuracy1 = localStorage.getItem('accuracy');
-  console.log()
+  console.log("cords:", latitude1, longitude1)
+
+  unvail = true;
+  if (unvail) {
+    block.innerHTML = '<iframe src="https://maps.google.com/maps?q=' + latitude1 + ',' + longitude1 + '&t=&z=15&ie=UTF8&iwloc=&output=embed" width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
+  } else {
+      block.innerHTML = '<p>Click "Load GPS Position" to view the saved location.</p>';
+  }
 }
-  
-// Get the button element
+
 const button = document.getElementById("SaveButton");
-  
-// Add an event listener to the button
 button.addEventListener("click", SaveCords);
+
+const button1 = document.getElementById("LoadButton");
+button1.addEventListener("click", LoadCords);
+
+const block = document.getElementById('ShowMap');
