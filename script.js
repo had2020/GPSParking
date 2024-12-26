@@ -1,8 +1,10 @@
-import Cookies from 'js-cookie';
 console.log("begin log");
-Cookies.set('username', 'JohnDoe', { expires: 7 });
-let username = Cookies.get('username');
+
+/*
+localStorage.setItem('latitude', latitude.toString());
+const username = localStorage.getItem('username');
 console.log(username);
+*/
 
 
 const successCallback = (position) => {
@@ -13,6 +15,9 @@ const successCallback = (position) => {
   
     // Do something with the location data
     console.log(`Latitude: ${latitude}, Longitude: ${longitude}, Accuracy: ${accuracy} meters`);
+    localStorage.setItem('latitude', latitude.toString());
+    localStorage.setItem('longitude', longitude.toString());
+    localStorage.setItem('accuracy', accuracy.toString());
     alert("GPS coordinates, saved in browsing data. 👍");
     };
   
@@ -33,10 +38,13 @@ const successCallback = (position) => {
 
 function SaveCords() {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    //TODO write cookie
 }
 
 function LoadCords() {
+  const latitude1 = localStorage.getItem('latitude');
+  const longitude1 = localStorage.getItem('longitude');
+  const accuracy1 = localStorage.getItem('accuracy');
+  console.log()
 }
   
 // Get the button element
