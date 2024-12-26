@@ -51,10 +51,6 @@ project-root/
 - Enhance the UI with modern CSS frameworks like Bootstrap.
 - Add a feature to delete saved locations.
 
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
 ---
 
 Made with ❤️ for my father who needed a lightweight solution to track parking location.
