@@ -1,7 +1,5 @@
 console.log("begin log");
 
-let unvail = false;
-
 const successCallback = (position) => {
     console.log(position);
     const latitude = position.coords.latitude;
@@ -38,13 +36,7 @@ function LoadCords() {
   const latitude1 = localStorage.getItem('latitude');
   const longitude1 = localStorage.getItem('longitude');
   console.log("cords:", latitude1, longitude1)
-
-  unvail = true;
-  if (unvail) {
-    block.innerHTML = '<iframe src="https://maps.google.com/maps?q=' + latitude1 + ',' + longitude1 + '&t=&z=15&ie=UTF8&iwloc=&output=embed" width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
-  } else {
-      block.innerHTML = '<p>Click "Load GPS Position" to view the saved location.</p>';
-  }
+  block.innerHTML = '<iframe src="https://maps.google.com/maps?q=' + latitude1 + ',' + longitude1 + '&t=&z=15&ie=UTF8&iwloc=&output=embed" width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
 }
 
 const button = document.getElementById("SaveButton");
@@ -54,3 +46,6 @@ const button1 = document.getElementById("LoadButton");
 button1.addEventListener("click", LoadCords);
 
 const block = document.getElementById('ShowMap');
+
+//</p> <div style="width: 600px; height: 600px; background-color: black;"></div>
+block.innerHTML = '<p style="font-size: 40px;">Click "Load GPS Position" to view your saved location.</p>';
